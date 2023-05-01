@@ -1,0 +1,10 @@
+body{
+  padding-top:80px;
+  word-wrap:break-word;
+  background-image: url("img/moneybackground.png");
+  color: black;
+}
+img{
+  height: 200px;
+}
+
