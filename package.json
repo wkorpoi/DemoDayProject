@@ -5,6 +5,7 @@
     "bcrypt": "*",
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.18.3",
+    "bootstrap-icons": "^1.10.5",
     "connect-flash": "~0.1.1",
     "cookie-parser": "~1.4.3",
     "ejs": "^3.1.9",

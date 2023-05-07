@@ -7,16 +7,29 @@ module.exports = function(app, passport, db) {
         res.render('index.ejs');
     });
 
+    // app.get('/booking', function(req, res) {
+    //     res.render('booking.ejs');
+    // });
+    
     // PROFILE SECTION =========================
-    app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('messages').find().toArray((err, result) => {
-          if (err) return console.log(err)
-          res.render('profile.ejs', {
-            user : req.user,
-            messages: result
-          })
-        })
-    });
+        app.get('/booking', isLoggedIn, function(req, res) {
+            db.collection('itenery').find().toArray((err, result) => {
+              if (err) return console.log(err)
+              res.render('booking.ejs', {
+                user : req.user,
+                itenery: result
+              })
+            })
+        });
+    // app.get('/profile', isLoggedIn, function(req, res) {
+    //     db.collection('messages').find().toArray((err, result) => {
+    //       if (err) return console.log(err)
+    //       res.render('profile.ejs', {
+    //         user : req.user,
+    //         messages: result
+    //       })
+    //     })
+    // });
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
@@ -28,13 +41,23 @@ module.exports = function(app, passport, db) {
 
 // message board routes ===============================================================
 
-    app.post('/messages', (req, res) => {
-      db.collection('messages').save({name: req.body.name, date: req.body.date, amount: req.body.amount}, (err, result) => {
+    app.post('/booking', (req, res) => {
+      db.collection('itenery').insertOne({name: req.body.name, destination: req.body.destination, activities: req.body.activities, date: req.body.date}, (err, result) => {
         if (err) return console.log(err)
         console.log('saved to database')
         res.redirect('/profile')
       })
     })
+
+    // app.get('/booking', isLoggedIn, function(req, res) {
+    //     db.collection('messages').find().toArray((err, result) => {
+    //       if (err) return console.log(err)
+    //       res.render('booking.ejs', {
+    //         user : req.user,
+    //         messages: result
+    //       })
+    //     })
+    // });
 
     // app.put('/messages', (req, res) => {
     //   db.collection('messages')
@@ -75,7 +98,7 @@ module.exports = function(app, passport, db) {
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
-            successRedirect : '/profile', // redirect to the secure profile section
+            successRedirect : '/', // redirect to the secure profile section
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
