@@ -59,6 +59,7 @@ module.exports = function (app, passport, db) {
 
   app.get("/trips/:id", isLoggedIn, function (req, res) {
     const tripId = req.params.id;
+    console.log('working')
     console.log({ tripId });
     db.collection("contacts")
       .find({ currentUser: req.user.local.email })
@@ -100,7 +101,7 @@ module.exports = function (app, passport, db) {
   });
 
   // message board routes ===============================================================
-  app.post("/add", (req, res) => {
+  app.post("/add", (req, response) => {
     db.collection("trips").insertOne(
       {
         destination: req.body.destination,
@@ -111,7 +112,8 @@ module.exports = function (app, passport, db) {
       (err, result) => {
         if (err) return console.log(err);
         console.log("saved to database");
-        res.redirect("/trips");
+        let destinationId = result.insertedId
+        response.redirect("/trips/"+ destinationId);
       }
     );
   });
