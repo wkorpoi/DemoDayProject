@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'><link rel="stylesheet" href="../css/contacts.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-9 mx-auto mt-5">
+                <div class="card shadow">
+                    <h3 class="card-header">Add New</h3>
+                    <div class="card-body">
+                            <div class="form-group">
+                                <form action="/addFriend" method="POST">
+                                <label for="friendName">Friend Name</label>
+                                <input type="text" class="form-control mb-4" id="friendName" name="name" placeholder="You Friend name"
+                                    required>
+                                    <label for="number">Phone Number</label>
+                                    <input type="text" class="form-control mb-4" id="number" name="number" placeholder="Their phone number"
+                                    required>
+                            </div>
+                            <button type="submit" class="add btn btn-info btn-block mt-3">Add to list</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <h3 class="card-header">All Friends</h3>
+                    <div class="card-body">
+                        <ul id="friend-output" class="list-group">
+                            <% for(let i =0; i < contacts.length; i++){%>
+                                <li class="list-group-item"><%= contacts[i].friendName%></li>
+                            <%}%>
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</body>
+</html>

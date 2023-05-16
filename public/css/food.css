@@ -1,0 +1,24 @@
+.rec {
+    border-radius: 8px;
+    background: white;
+    box-shadow: 10px 10px 19px -7px rgba(0,0,0,0.75);
+    width: 25%;
+}
+
+.rec img{
+    width: 88%;
+}
+
+body{
+    background: grey;
+}
+
+ul{
+    list-style: none;
+}
+
+#list{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}

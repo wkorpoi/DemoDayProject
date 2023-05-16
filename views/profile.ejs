@@ -10,62 +10,17 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1> My Demo Day</h1>
+        <h1> My Travel App </h1>
         <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
+        <a href="/booking" class="btn btn-default btn-sm">Book A Trip</a>
+        <a href="/contacts" class="btn btn-default btn-sm">Contacts</a>
+        <a href="/trips" class="btn btn-default btn-sm">Your Trips</a>
+</div>
 
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        <!-- <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                <% if (user.local.email) { %>
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
-
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
-                <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
-                <% } %>
-
-            </div>
-        </div> -->
-
-        <div class="col-sm-6">
-
-        <img src="img/trip savings.png">
-
-        </div>
-
-        <div class="col-sm-6">
-          <h3> Input the amount of money you've saved for your trip below</h3>
-          <ul class="messages">
-          <% for(var i=0; i<messages.length; i++) {%>
-            <li class="message">
-              <span><%= messages[i].name %></span>
-              <span><%= messages[i].date %></span>
-              <span><%= messages[i].amount %></span>
-              <button class="delete">delete</button>
-            </li>
-          <% } %>
-          </ul>
-
-          <h2> Add Money </h2>
-        <!-- <% if (user.local.email) { %> -->
-          <form action="/messages" method="POST">
-            <input type="text" placeholder="title" name="name">
-            <input type="date" name="date">
-            <input type="currency" placeholder="$" name="amount">
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <% } %>
-
+<div>
+  <% for(let i = 0; i < trips.length; i++){ %>
+<a href="/trips/<%= trips[i]._id%>"><%=trips[i].destination %> </a>
+   <%} %>
 </div>
 
 <script src="main.js"></script>

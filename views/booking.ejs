@@ -74,8 +74,7 @@
 						<li class="has-dropdown">
 							<a href="#">Account</a>
 							<ul class="dropdown">
-								<li><a href="/signup">Sign Up</a></li>
-								<li><a href="/login">Log In</a></li>
+								<li><a href="/logout">Logout</a></li>
 							</ul>
 						</li>
 					</ul>	
@@ -102,49 +101,25 @@
 						<div class="col-md-4 col-md-push-1 animate-box" data-animate-effect="fadeInRight">
 							<div class="form-wrap">
 								<div class="tab">
-
 									<div class="tab-content">
 										<div class="tab-content-inner active" data-content="signup">
 											<h3>Book Your Trip</h3>
 											<form action="/add" method="post">
 												<div class="row form-group">
 													<div class="col-md-12">
-														<label for="fullname">Your Name</label>
-														<input name="fullname" type="text" id="fullname" class="form-control">
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
-														<label for="activities">Activities</label>
-														<select name="activities" id="activities" class="form-control">
-															<option value="">Activities</option>
-															<option value="">Dancing</option>
-															<option value="">Hiking</option>
-															<option value="">Caving</option>
-															<option value="">Swimming</option>
-															<option value="">Gym</option>
-															<option value="">Fine Dining</option>
-															<option value="">Spa</option>
-															<option value="">Local Excursions</option>
-														</select>
-													</div>
-												</div>
-												<div class="row form-group">
-													<div class="col-md-12">
 														<label for="destination">Destination</label>
-														<select name="destination" id="destination" class="form-control">
-															<option value="">Philippines</option>
-															<option value="">USA</option>
-															<option value="">Australia</option>
-															<option value="">Singapore</option>
-														</select>
+														<input name="destination" placeholder="Your City or state">
 													</div>
 												</div>
 												
 												<div class="row form-group">
 													<div class="col-md-12">
-														<label for="date-start">Date Travel</label>
-														<input name="date" type="text" id="date-start" class="form-control">
+														<label for="date-start">Start Date</label>
+														<input name="startDate" type="text" id="date-start" class="form-control">
+													</div>
+													<div class="col-md-12">
+														<label for="date-end">End Date</label>
+														<input name="endDate" type="text" id="date-end" class="form-control">
 													</div>
 												</div>
 
@@ -154,22 +129,8 @@
 													</div>
 												</div>
 											</form>	
-
-                                
-                                                <ul class="itenery">
-                                                <% for(var i=0; i<itenery.length; i++) {%>
-                                                  <li class="itenery">
-                                                    <span><%= itenery[i].fullname %>"></span>
-                                                    <span><%= itenery[i].destination %>"></span>
-                                                    <span><%= itenery[i].activities %>"></span>
-                                                    <span><%= itenery[i].dates %>"></span>
-                                                  </li>
-                                                <% } %>
-                                                </ul>
                                       </div>
 										</div>
-
-										
 									</div>
 								</div>
 							</div>
